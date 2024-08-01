@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+
+    .mainX{
+        @apply font-bold bg-gradient-to-r from-blue-500 to-black bg-clip-text text-transparent 
+    }
+    .logo-ticker{
+        @apply h-8 w-auto
+    }
+    .mask-gradient {
+   -webkit-mask-image: linear-gradient(to right, transparent, black, transparent);
+       mask-image: linear-gradient(to right, transparent, black, transparent);
+      }
+      .box-sizes{
+        @apply  p-10 rounded-2xl  flex flex-col items-center justify-center border-2 border-black relative overflow-hidden
+        shadow-blue-light
+      }
+      .box-grid{
+        @apply grid grid-cols-1 gap-4 md:grid-cols-1 w-full max-w-6xl
+      }
+      .h2-box{
+        @apply text-3xl md:text-5xl font-bold mb-2 uppercase  text-center z-20 
+      }
+      .buttonS {
+        @apply px-2 py-1 border border-black rounded-full text-center md:px-4 md:py-2 ;
+        @apply text-white bg-gradient-to-r  from-black to-blue-400 md:from-transparent md:to-transparent md:text-black; 
+        @apply md:bg-transparent;
+      }
+      .buttonMain{
+        @apply flex gap-3 flex-col md:flex-row z-20
+      }
+      .imagexl{
+        @apply absolute h-[230px] w-[300px] -bottom-[60px] -left-36 lg:-left-10  rounded-2xl z-10
+      }
+      .imagexr{
+        @apply absolute h-[230px] w-[240px] -bottom-[60px] -right-32 lg:-right-20  rounded-2xl z-10
+      }
+      .stripsr{
+        @apply absolute text-xl bg-blue-200 top-4 -left-10 -rotate-45  overflow-hidden z-20 shadow-blue-light px-12
+      }
+      .stripsl{
+        @apply absolute text-xl bg-blue-200 top-4 -right-10 rotate-45  overflow-hidden z-20 shadow-blue-light px-12
+      }
+.cardStackClasses{
+ @apply absolute dark:bg-white border border-black bg-white h-80 w-60 md:h-96 md:w-96 rounded-2xl p-4 shadow-xl   shadow-blue-300  flex flex-col justify-between
+}
+      
+}
