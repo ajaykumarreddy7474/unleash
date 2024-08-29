@@ -46,6 +46,16 @@
       }
 .cardStackClasses{
  @apply absolute dark:bg-white border border-black bg-white h-80 w-60 md:h-96 md:w-96 rounded-2xl p-4 shadow-xl   shadow-blue-300  flex flex-col justify-between
-}
-      
+}     
+.box {
+  width: 100vw;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  font-family: poppins;
+  background-color: skyblue;
+  font-family: poppins;
+ 
+  line-height: 15px;
+} 
 }

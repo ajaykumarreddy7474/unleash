@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "title": "Basic plan",
+      "cost": "$10",
+      "month": "per month",
+      "titleX": "Best",
+      "buttonx": "Get started",
+      "description": "Basic features for up to 10 users",
+      "feature": "Features",
+      "ftitle": "Everything in our free plan plus",
+      "line1": "Access to all",
+      "line2": "basic reporting here",
+      "line3": "basic chat and email support"
+    },
+    {
+      "id": 2,
+      "title": "Business plan",
+      "cost": "$20",
+      "month": "per month",
+      "titleX": "Popular",
+      "buttonx": "Get started",
+      "description": "Growing teams up to 20 jobs",
+      "feature": "Features",
+      "ftitle": "Everything in our free Bussiness plus",
+      "line1": "Access to all",
+      "line2": "basic reporting here",
+      "line3": "basic chat and email support"
+    },
+    {
+      "id": 3,
+      "title": "Enterprise plan",
+      "cost": "$40",
+      "month": "per month",
+      "titleX": "Better",
+      "buttonx": "Get started",
+      "description": "Advanced features + unlimited users",
+      "feature": "Features",
+      "ftitle": "Everything in our enterprise plan plus",
+      "line1": "Access to all",
+      "line2": "basic reporting here",
+      "line3": "basic chat and email support"
+    }
+  ]
+  

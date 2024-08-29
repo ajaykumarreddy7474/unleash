@@ -1,15 +1,19 @@
 import Image from "next/image"
 import main1 from "../public/heropic.jpg"
+import Stripbar from "./Stripbar"
 const Hero = () => {
   return (
-    <section className="py-4 px-7 md:px-16 lg:px-40">
-  <div className="container mx-auto"> {/* Center the container */}
+    <section className="py-4 px-7 
+      md:px-16 lg:px-40 relative">
+       
+       <Stripbar/>
+  <div className="container mx-auto"> 
     <div className="flex flex-col md:flex-row justify-center items-center">
       <div className="text-center md:text-left">
         <h1 className="text-4xl lg:text-6xl">
           Unleash <span className="mainX">Effortless</span> Tech Success and <span className="mainX">Conquer</span> your Dreams
         </h1>
-        <h2 className="text-xl tracking-tight mt-6 md:text-[17px] md:mt-4 lg:pr-32 lg:text-2xl">
+        <h2 className="text-xl tracking-tight mt-14 md:text-[17px] md:mt-4 lg:pr-32 lg:text-2xl">
           Discover a streamlined, stress-free approach to landing your dream tech job. Conquering with best skills with you.
         </h2>
       </div>

@@ -27,22 +27,13 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className=" fixed inset-0 grid place-items-center z-[100]">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              exit={{
-                opacity: 0,
-                transition: {
-                  duration: 0.05,
-                },
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
               className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
               onClick={() => setActive(null)}
             >
@@ -51,7 +42,7 @@ export function ExpandableCardDemo() {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -60,38 +51,21 @@ export function ExpandableCardDemo() {
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-80 lg:h-80 rounded-lg object-cover object-top border border-black "
                 />
               </motion.div>
 
               <div>
-                <div className="flex justify-between items-start p-4">
-                  <div className="">
+                <div className="flex justify-between items-start p-4 ">
+                  <div>
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
+                      className="font-medium  text-green-400 text-4xl"
                     >
                       {active.title}
                     </motion.h3>
-                    <motion.p
-                      layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
-                    >
-                      {active.description}
-                    </motion.p>
                   </div>
 
-                  <motion.a
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    href={active.ctaLink}
-                    target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
-                  >
-                    {active.ctaText}
-                  </motion.a>
                 </div>
                 <div className="pt-4 relative px-4">
                   <motion.div
@@ -111,42 +85,44 @@ export function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
-        {cards.map((card, index) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={card.title}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col  hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+      <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4 relative">
+  {cards.map((card) => (
+    <motion.div
+      layoutId={`card-${card.title}-${id}`}
+      key={card.title}
+      onClick={() => setActive(card)}
+      className="p-2 flex flex-col hover:bg-gradient-to-r from-blue-500 to-black rounded-xl cursor-pointer z-10"
+    >
+      <div className="flex gap-4 flex-col bg-black w-full border border-black rounded-lg z-20 relative">
+       
+        <motion.div layoutId={`image-${card.title}-${id}`}>
+          <Image
+            width={100}
+            height={100}
+            src={card.src}
+            alt={card.title}
+            className="h-60 w-full rounded-t-lg object-cover object-top"
+          />
+        </motion.div>
+        
+        <div className=" flex justify-center items-center flex-col mb-4">
+          <motion.h3
+            layoutId={`title-${card.title}-${id}`}
+            className="text-2xl text-white font-bold text-center md:px-4"
           >
-            <div className="flex gap-4 flex-col  w-full">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={card.src}
-                  alt={card.title}
-                  className="h-60 w-full  rounded-lg object-cover object-top"
-                />
-              </motion.div>
-              <div className="flex justify-center items-center flex-col">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-neutral-200 text-center md:text-left text-base"
-                >
-                  {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-600 dark:text-neutral-400 text-center md:text-left text-base"
-                >
-                  {card.description}
-                </motion.p>
-              </div>
+            {card.title}
+          </motion.h3>
+          <div className="text-white absolute top-2 left-0 text-7xl backdrop-blur-lg px-6 py-2 rounded-md text-center">
+            <div><h1 className="font-bold text-3xl md:text-6xl">{` ${card.count}`}</h1></div>
+            <div><h1 className="text-xl">{` ${card.countTitle}`}</h1></div>
             </div>
-          </motion.div>
-        ))}
-      </ul>
+        </div>
+        
+      </div>
+    </motion.div>
+  ))}
+</ul>
+
     </>
   );
 }
@@ -154,18 +130,9 @@ export function ExpandableCardDemo() {
 export const CloseIcon = () => {
   return (
     <motion.svg
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-        transition: {
-          duration: 0.05,
-        },
-      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.05 } }}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -186,66 +153,78 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Lana Del Rey",
-    title: "Summertime Sadness",
+    title: "Extensive Job Listings",
     src: "/c2.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Lana Del Rey, an iconic American singer-songwriter, is celebrated for
-          
-        </p>
-      );
-    },
-  },
-  {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    src: "/c2.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Babu Maan, a legendary Punjabi singer, is renowned for his soulful
-          voice and profound lyrics that resonate deeply with his audience. .
-        </p>
-      );
-    },
+    countTitle:"Job Listings",
+    count: "100K",
+    content: () => (
+      <p>
+        Expand your professional network with our networking tools and events. Connect with industry professionals and potential employers to advance your career.
+      </p>
+    ),
+     
   },
 
   {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
+    title: "Personalized Matches",
+    src: "/c9.jpg",
+    countTitle:"Match Rate",
+    count: "88%",
+    content: () => (
+      <p>
+      Explore a vast range of job opportunities from various industries. Our extensive database is updated regularly to ensure you have access to the latest job postings.
+      </p>
+    ),
+     
+  },
+
+  {
+    title: "Expert Career Advice",
+    src: "/c5.jpg",
+    countTitle:"Rating for Advices",
+    count: "4.5",
+    content: () => (
+      <p>
+        Our advanced algorithms provide personalized job matches based on your skills, experience, and preferences, helping you find the perfect job faster.
+      </p>
+    ),
+     
+  },
+
+  {
+    title: "Verified Employers",
+    src: "/c8.jpg",
+    countTitle:"Verifies",
+    count: "1500+",
+    content: () => (
+      <p>
+       Get expert career advice and tips to enhance your resume, prepare for interviews, and excel in your career. Our resources are designed to help you succeed.
+      </p>
+    ),
+  },
+
+  {
+    title: "Network Opportunities",
     src: "/c2.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Metallica, an iconic American heavy metal band, is renowned for their
-          powerful sound and intense performances that resonate deeply with
-      
-        </p>
-      );
-    },
+    countTitle:"Networking Events",
+    count: "10/week",
+    content: () => (
+      <p>
+        Trust that you're applying to verified and reputable employers. We carefully screen job listings to ensure you are connected with credible companies.
+      </p>
+    ),
+     
   },
   {
-    description: "Lord Himesh",
-    title: "Aap Ka Suroor",
-    src: "/c2.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Himesh Reshammiya, a renowned Indian music composer, singer, and
-          actor, is celebrated for his distinctive voice and innovative
-          compositions. Born in Mumbai, India, he has become a prominent 
-        </p>
-      );
-    },
+    title: "Offering Counts",
+    src: "/c3.jpg",
+    countTitle:"Jobs",
+    count: "5+",
+    content: () => (
+      <p>
+     Expand your professional network with our networking tools and events. Connect with industry professionals and potential employers to advance your career.
+      </p>
+    ),
+     
   },
 ];
