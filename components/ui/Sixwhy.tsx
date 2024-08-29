@@ -210,7 +210,7 @@ const cards = [
     count: "10/week",
     content: () => (
       <p>
-        Trust that you're applying to verified and reputable employers. We carefully screen job listings to ensure you are connected with credible companies.
+        Trust that you&#39;re applying to verified and reputable employers. We carefully screen job listings to ensure you are connected with credible companies.
       </p>
     ),
      

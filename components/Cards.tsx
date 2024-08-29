@@ -3,7 +3,7 @@ import p2 from "../public/t1.jpg"
 import p1 from "../public/t3.jpg"
 import p3 from "../public/t5.jpg"
 import p5 from "../public/t8.jpg"
-// import p4 from "../public/t9.jpg"
+
 const Cards = () => {
   return (
     <div className="px-4 pb-10">      <h2 className="mainX text-center text-4xl md:text-7xl my-2 uppercase">Explore <br/> Strategies</h2>

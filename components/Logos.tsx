@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import p1 from "../public/logo-acme.png";
 import p2 from "../public/logo-apex.png";
 import p3 from "../public/logo-celestial.png";
